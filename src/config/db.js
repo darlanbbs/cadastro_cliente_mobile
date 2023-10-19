@@ -27,3 +27,9 @@ export const createPhysicalClient = async (
   });
   return response.data;
 };
+
+export const handleSearch = async (item) => {
+  const response = await api.get(`/search?nome=${item}`);
+  console.log(response.data);
+  return response.data;
+};

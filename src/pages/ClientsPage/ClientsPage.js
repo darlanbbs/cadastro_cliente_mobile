@@ -3,6 +3,7 @@ import { Text } from "react-native";
 import { getAllClients } from "../../config/db";
 import { Container } from "../../GlobalStyles/styles";
 import * as C from "./styles";
+import SearchComponent from "../../components/searchInput/SearchInput";
 
 const ClientsPage = () => {
   const [clients, setClients] = useState([]);
@@ -23,6 +24,7 @@ const ClientsPage = () => {
         <C.TitleArea>
           <C.Title>Consulta de clientes</C.Title>
           <C.subTitle>Gerenciamento de pessoas</C.subTitle>
+          <SearchComponent />
         </C.TitleArea>
       </C.ContainerClientsPage>
     </Container>
