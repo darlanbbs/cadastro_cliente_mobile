@@ -1,9 +1,9 @@
 import { View } from "react-native";
 import * as C from "./styles";
 
-const CreateButton = () => {
+const CreateButton = ({ navigation }) => {
   return (
-    <View>
+    <View onPress={() => navigation.navigate("Cadastro")}>
       <C.StylizedButton>
         <C.StylizedClientesTextButton>
           Cadastrar Cliente

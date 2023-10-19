@@ -4,16 +4,16 @@ import * as C from "./styles";
 import CreateButton from "../../components/CreateButton/CreateButton";
 import ClientesButton from "../../components/verClientesButton/ClientesButton";
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
   return (
     <Container>
       <C.ContainerHomePage>
         <C.TitleArea>
-          <C.Title>Cadastro</C.Title>
-          <C.subTitle>Cadastre os clientes</C.subTitle>
+          <C.Title>Cadastro de Clientes</C.Title>
+          <C.subTitle>Gerenciamento de pessoas</C.subTitle>
         </C.TitleArea>
-        <ClientesButton />
-        <CreateButton />
+        <ClientesButton navigation={navigation} />
+        <CreateButton navigation={navigation} />
       </C.ContainerHomePage>
     </Container>
   );

@@ -1,10 +1,10 @@
 import { View } from "react-native";
 import { StylizedClientesButton, StylizedClientesTextButton } from "./styles";
 
-const ClientesButton = () => {
+const ClientesButton = ({ navigation }) => {
   return (
-    <View>
-      <StylizedClientesButton>
+    <View onPress={() => navigation.navigate("Clientes")}>
+      <StylizedClientesButton onPress={() => navigation.navigate("Clientes")}>
         <StylizedClientesTextButton>Clientes</StylizedClientesTextButton>
       </StylizedClientesButton>
     </View>
