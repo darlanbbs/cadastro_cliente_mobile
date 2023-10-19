@@ -7,7 +7,11 @@ const Stack = createNativeStackNavigator();
 
 function HeaderStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen name="Home" component={HomePage} />
       <Stack.Screen name="Cadastro" component={CreationPage} />
       <Stack.Screen name="Clientes" component={ClientsPage} />
