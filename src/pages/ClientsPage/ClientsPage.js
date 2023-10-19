@@ -18,8 +18,6 @@ const ClientsPage = () => {
     });
   }, [clients]);
 
-  console.log(clients);
-
   return (
     <SafeAreaView>
       <Container>
@@ -33,7 +31,7 @@ const ClientsPage = () => {
           <FlatList
             style={{ flex: 1, width: "100%" }}
             data={clients}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.email.toString()}
             renderItem={({ item }) => (
               <SearchCard item={item.nome_ou_nome_empresa} />
             )}

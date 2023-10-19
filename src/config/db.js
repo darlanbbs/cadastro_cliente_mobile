@@ -1,11 +1,12 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://byzantium-penguin-shoe.cyclic.app",
+  baseURL: "https://mysterious-cow-panama-hat.cyclic.app",
 });
 
 export const getAllClients = async () => {
   const response = await api.get("/clients");
+
   return response.data;
 };
 
@@ -25,11 +26,35 @@ export const createPhysicalClient = async (
     rg,
     telefone,
   });
+  console.log("response", response.data);
   return response.data;
 };
 
 export const handleSearch = async (item) => {
   const response = await api.get(`/search?nome=${item}`);
-  console.log(response.data);
   return response.data;
+};
+
+export const createJuridicalClient = async (
+  nome_empresa,
+  endereco,
+  telefone,
+  email,
+  cnpj
+) => {
+  try {
+    const response = await api.post("/clients/juridical", {
+      nome_empresa,
+      endereco,
+      telefone,
+      email,
+      cnpj,
+    });
+    console.log("Cliente jurídico criado");
+    console.log("response", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao criar cliente jurídico:", error);
+    throw error;
+  }
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, ContainerPage } from "./../../GlobalStyles/styles";
-import { Text, Button } from "react-native";
+import { Text, Button, View } from "react-native";
 import TitleArea from "../../components/TitleArea/TitleArea";
 import FormPessoaFisica from "../../components/forms/FormPessoaFisica/FormPessoaFisica";
 import FormPessoaJuridica from "../../components/forms/FormPessoaJuridica/FormPessoaJuridica";

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { View, TextInput, Button, Text } from "react-native";
+import { View, Button, Text } from "react-native";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaJuridical } from "../../../schemas/schemas";
 import { InputController } from "../styles/InputStylesForm";
-import CreateButton from "../../CreateButton/CreateButton";
 import { FinishButton, FinishTextButton } from "../styles/FinishButton";
 import * as DocumentPicker from "expo-document-picker";
+import { createJuridicalClient } from "../../../config/db";
 
 const FormPessoaJuridica = ({ onSubmit }) => {
   const [arquivo, setArquivo] = React.useState(null);
@@ -21,7 +21,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
   const selecionarDocumento = async () => {
     try {
       const resultado = await DocumentPicker.getDocumentAsync({
-        type: "*/*", // Aceitar qualquer tipo de arquivo
+        type: "*/*",
         copyToCacheDirectory: false,
       });
 
@@ -32,16 +32,34 @@ const FormPessoaJuridica = ({ onSubmit }) => {
       console.error("Erro ao selecionar o documento:", erro);
     }
   };
-  const onFormSubmit = (data) => {
-    onSubmit(data);
-  };
 
+  const onFormSubmit = async (data) => {
+    try {
+      await createJuridicalClient(
+        data.nome_empresa,
+        data.endereco,
+        data.telefone,
+        data.email,
+        data.cnpj
+      );
+      console.log("Cliente jurídico criado com sucesso!");
+      onSubmit(data);
+    } catch (error) {
+      console.log("Erro ao criar cliente jurídico:", error);
+    }
+    console.log(data.email);
+  };
   return (
     <View>
       <Controller
         control={control}
-        render={({ field }) => (
-          <InputController {...field} placeholder="Nome da Empresa" />
+        defaultValue=""
+        render={({ field: { value, onChange } }) => (
+          <InputController
+            placeholder="Nome da Empresa"
+            onChangeText={onChange}
+            value={value}
+          />
         )}
         name="nome_empresa"
       />
@@ -49,8 +67,13 @@ const FormPessoaJuridica = ({ onSubmit }) => {
 
       <Controller
         control={control}
-        render={({ field }) => (
-          <InputController {...field} placeholder="Endereço" />
+        defaultValue=""
+        render={({ field: { value, onChange } }) => (
+          <InputController
+            placeholder="Endereço"
+            onChangeText={onChange}
+            value={value}
+          />
         )}
         name="endereco"
       />
@@ -58,8 +81,13 @@ const FormPessoaJuridica = ({ onSubmit }) => {
 
       <Controller
         control={control}
-        render={({ field }) => (
-          <InputController {...field} placeholder="Telefone" />
+        defaultValue=""
+        render={({ field: { value, onChange } }) => (
+          <InputController
+            onChangeText={onChange}
+            value={value}
+            placeholder="Telefone"
+          />
         )}
         name="telefone"
       />
@@ -67,8 +95,13 @@ const FormPessoaJuridica = ({ onSubmit }) => {
 
       <Controller
         control={control}
-        render={({ field }) => (
-          <InputController {...field} placeholder="Email" />
+        defaultValue=""
+        render={({ field: { value, onChange } }) => (
+          <InputController
+            onChangeText={onChange}
+            value={value}
+            placeholder="Email"
+          />
         )}
         name="email"
       />
@@ -76,22 +109,30 @@ const FormPessoaJuridica = ({ onSubmit }) => {
 
       <Controller
         control={control}
-        render={({ field }) => (
-          <InputController {...field} placeholder="CNPJ" />
+        defaultValue=""
+        render={({ field: { value, onChange } }) => (
+          <InputController
+            placeholder="CNPJ"
+            onChangeText={onChange}
+            value={value}
+          />
         )}
         name="cnpj"
       />
       {errors.cnpj && <Text>CNPJ é obrigatório.</Text>}
-      <Controller
+      {/* <Controller
         control={control}
-        render={({ field }) => (
+        render={({ field: { value, onChange } }) => (
           <Button
             title="Anexar Contrato Social"
-            onPress={selecionarDocumento}
+            onPress={() => {
+              selecionarDocumento();
+              onChange(arquivo);
+            }}
           />
         )}
         name="contrato_social_path"
-      />
+      /> */}
 
       <FinishButton onPress={handleSubmit(onFormSubmit)}>
         <FinishTextButton>Enviar</FinishTextButton>
