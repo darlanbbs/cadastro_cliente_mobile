@@ -3,26 +3,26 @@ const Theme = {
     background: "#323238",
     primary: {
       main: "#00B37E",
-      contrastText: "#fff",
+      contrastText: "#6c6c6a",
+      terciaryText: "fff",
     },
   },
 
   border: {
     radius: "15px",
-    style: "2px solid #736681",
   },
 
   font_size: {
-    small: "18px",
-    default: "24px",
+    small: "24px",
+    default: "32px",
   },
   font_weight: {
     bold: "bold",
-    normal: "300",
+    normal: "500",
   },
   padding: {
     small: "10px",
-    default: "20px",
+    default: "35px",
   },
 };
 
