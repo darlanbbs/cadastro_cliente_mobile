@@ -13,10 +13,12 @@ export const ContainerHomePage = styled(View)`
 
 export const TitleArea = styled(View)`
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   width: 100%;
   flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
 `;
 
 export const Title = styled(Text)`

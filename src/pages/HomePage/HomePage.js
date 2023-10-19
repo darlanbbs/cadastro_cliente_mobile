@@ -11,8 +11,8 @@ const HomePage = ({ navigation }) => {
         <C.TitleArea>
           <C.Title>Cadastro de Clientes</C.Title>
           <C.subTitle>Gerenciamento de pessoas</C.subTitle>
+          <ClientesButton navigation={navigation} />
         </C.TitleArea>
-        <ClientesButton navigation={navigation} />
         <CreateButton navigation={navigation} />
       </C.ContainerHomePage>
     </Container>
