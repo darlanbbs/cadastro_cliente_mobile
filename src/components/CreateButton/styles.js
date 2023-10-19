@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Button } from "react-native";
 
 export const StylizedButton = styled(Button)`
-  background-color: ${(props) => props.theme.color.primary.main};
   color: ${(props) => props.theme.color.primary.contrastText};
   border-radius: ${(props) => props.theme.border.radius};
   font-size: ${(props) => props.theme.font_size.default};

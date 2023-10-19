@@ -1,10 +1,11 @@
 const Theme = {
   color: {
-    background: "#323238",
+    background: "#29292e",
+
     primary: {
       main: "#00B37E",
       contrastText: "#6c6c6a",
-      terciaryText: "fff",
+      terciaryText: "#ffffff",
     },
   },
 
