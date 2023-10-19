@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, TextInput, Button, FlatList, Text } from "react-native";
 import axios from "axios";
 import { handleSearch } from "../../config/db";
+import SearchCard from "../CardUser/CardUser";
 
 const SearchComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +16,7 @@ const SearchComponent = () => {
     <View>
       <TextInput
         style={{
-          width: 300,
+          width: 350,
           height: 50,
           borderWidth: 1,
           marginBottom: 10,
@@ -36,10 +37,7 @@ const SearchComponent = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={{ marginVertical: 10 }}>
-            <Text>Nome: {item.nome_ou_nome_empresa}</Text>
-            <Text>Endereço: {item.endereco}</Text>
-            <Text>Telefone: {item.telefone}</Text>
-            <Text>Email: {item.email}</Text>
+            <SearchCard item={item.nome_ou_nome_empresa} />
           </View>
         )}
       />
