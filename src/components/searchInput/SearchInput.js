@@ -1,37 +1,27 @@
 import React, { useState } from "react";
 import { View, TextInput, Button, FlatList, Text } from "react-native";
-import axios from "axios";
 import { handleSearch } from "../../config/db";
 import SearchCard from "../CardUser/CardUser";
-
+import * as C from "./styles";
 const SearchComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
 
-  //   handleSearch(searchTerm).then((data) => {
-  //     setResults(data);
-  //   });
-
   return (
-    <View>
-      <TextInput
-        style={{
-          width: 350,
-          height: 50,
-          borderWidth: 1,
-          marginBottom: 10,
-          paddingLeft: 10,
-        }}
+    <C.InputSearchContainer>
+      <C.InputSearch
+        placeholderTextColor={"#6c6c6a"}
         placeholder="Digite o nome para buscar"
         value={searchTerm}
         onChangeText={(text) => setSearchTerm(text)}
       />
-      <Button
-        title="Buscar"
+      <C.ButtonSearch
         onPress={() =>
           handleSearch(searchTerm).then((data) => setResults(data))
         }
-      />
+      >
+        <C.TextButtonSearch>Buscar</C.TextButtonSearch>
+      </C.ButtonSearch>
       <FlatList
         data={results}
         keyExtractor={(item) => item.id.toString()}
@@ -41,7 +31,7 @@ const SearchComponent = () => {
           </View>
         )}
       />
-    </View>
+    </C.InputSearchContainer>
   );
 };
 
