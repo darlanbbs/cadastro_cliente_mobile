@@ -1,4 +1,5 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList, ScrollView } from "react-native";
+
 import styled from "styled-components";
 
 export const ContainerClientsPage = styled(View)`
@@ -29,4 +30,9 @@ export const subTitle = styled(Text)`
   color: ${(props) => props.theme.color.primary.contrastText};
   font-size: ${(props) => props.theme.font_size.small};
   font-weight: ${(props) => props.theme.font_weight.normal};
+`;
+
+export const ScrollViewClientPage = styled(ScrollView)`
+  width: 100%;
+  height: 100%;
 `;

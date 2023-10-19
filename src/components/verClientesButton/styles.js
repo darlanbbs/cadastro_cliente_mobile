@@ -3,7 +3,6 @@ import { Pressable, Text } from "react-native";
 
 export const StylizedClientesButton = styled(Pressable)`
   background-color: #323238;
-  border: solid 1px ${(props) => props.theme.color.primary.main};
   font-size: ${(props) => props.theme.font_size.default};
   font-weight: ${(props) => props.theme.font_weight.bold};
 
