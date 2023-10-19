@@ -1,10 +1,14 @@
 import { View } from "react-native";
-import { StylizedButton } from "./styles";
+import * as C from "./styles";
 
 const CreateButton = () => {
   return (
     <View>
-      <StylizedButton title="Cadastrar Cliente" color={"#00B37E"} />
+      <C.StylizedButton>
+        <C.StylizedClientesTextButton>
+          Cadastrar Cliente
+        </C.StylizedClientesTextButton>
+      </C.StylizedButton>
     </View>
   );
 };
