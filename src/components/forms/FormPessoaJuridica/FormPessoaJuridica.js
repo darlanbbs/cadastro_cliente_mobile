@@ -3,8 +3,9 @@ import { useForm, Controller } from "react-hook-form";
 import { View, TextInput, Button, Text } from "react-native";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaJuridical } from "../../../schemas/schemas";
-import { InputController } from "../InputStylesForm";
+import { InputController } from "../styles/InputStylesForm";
 import CreateButton from "../../CreateButton/CreateButton";
+import { FinishButton, FinishTextButton } from "../styles/FinishButton";
 
 const FormPessoaJuridica = ({ onSubmit }) => {
   const {
@@ -73,7 +74,9 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         name="contrato_social_path"
       />
 
-      <CreateButton onPress={handleSubmit(onFormSubmit)} />
+      <FinishButton onPress={handleSubmit(onFormSubmit)}>
+        <FinishTextButton>Enviar</FinishTextButton>
+      </FinishButton>
     </View>
   );
 };
