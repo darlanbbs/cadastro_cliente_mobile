@@ -13,7 +13,11 @@ function HeaderStack() {
       }}
     >
       <Stack.Screen name="Home" component={HomePage} />
-      <Stack.Screen name="Cadastro" component={CreationPage} />
+      <Stack.Screen
+        name="Cadastro"
+        component={CreationPage}
+        options={{ headerShown: true }}
+      />
       <Stack.Screen
         name="Clientes"
         component={ClientsPage}
