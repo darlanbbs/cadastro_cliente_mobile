@@ -3,8 +3,8 @@ import * as C from "./styles";
 
 const CreateButton = ({ navigation }) => {
   return (
-    <View onPress={() => navigation.navigate("Cadastro")}>
-      <C.StylizedButton>
+    <View>
+      <C.StylizedButton onPress={() => navigation.navigate("Cadastro")}>
         <C.StylizedClientesTextButton>
           Cadastrar Cliente
         </C.StylizedClientesTextButton>

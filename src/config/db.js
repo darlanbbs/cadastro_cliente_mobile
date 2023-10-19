@@ -6,7 +6,6 @@ const api = axios.create({
 
 export const getAllClients = async () => {
   const response = await api.get("/clients");
-  console.log(response.data);
   return response.data;
 };
 
