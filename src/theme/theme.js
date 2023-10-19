@@ -2,7 +2,7 @@ const Theme = {
   color: {
     background: "#323238",
     primary: {
-      main: "#323238",
+      main: "#00B37E",
       contrastText: "#fff",
     },
   },
@@ -12,9 +12,17 @@ const Theme = {
     style: "2px solid #736681",
   },
 
-  font: {
-    small: "1rem",
-    default: "1.5rem",
+  font_size: {
+    small: "18px",
+    default: "24px",
+  },
+  font_weight: {
+    bold: "bold",
+    normal: "300",
+  },
+  padding: {
+    small: "10px",
+    default: "20px",
   },
 };
 
