@@ -1,28 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { createPhysicalClient, getAllClients } from "./src/config/db";
-export default function App() {
-  const [clients, setClients] = useState([]);
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import HeaderStack from "./src/routes/route";
 
-  useEffect(() => {
-    // createPhysicalClient("nome", "cpf", "email", "endereco", "rg", "telefone");
-    getAllClients();
-  }, []);
-
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! xd</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <HeaderStack />
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;
