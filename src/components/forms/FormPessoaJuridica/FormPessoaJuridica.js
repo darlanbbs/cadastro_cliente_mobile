@@ -2,16 +2,9 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { View, TextInput, Button, Text } from "react-native";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-
-const schema = yup.object().shape({
-  nome_empresa: yup.string().required(),
-  endereco: yup.string().required(),
-  telefone: yup.string().required(),
-  email: yup.string().email().required(),
-  cnpj: yup.string().required(),
-  contrato_social_path: yup.mixed(),
-});
+import { schemaJuridical } from "../../../schemas/schemas";
+import { InputController } from "../InputStylesForm";
+import CreateButton from "../../CreateButton/CreateButton";
 
 const FormPessoaJuridica = ({ onSubmit }) => {
   const {
@@ -19,7 +12,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaJuridical),
   });
 
   const onFormSubmit = (data) => {
@@ -31,7 +24,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
       <Controller
         control={control}
         render={({ field }) => (
-          <TextInput {...field} placeholder="Nome da Empresa" />
+          <InputController {...field} placeholder="Nome da Empresa" />
         )}
         name="nome_empresa"
       />
@@ -39,28 +32,36 @@ const FormPessoaJuridica = ({ onSubmit }) => {
 
       <Controller
         control={control}
-        render={({ field }) => <TextInput {...field} placeholder="Endereço" />}
+        render={({ field }) => (
+          <InputController {...field} placeholder="Endereço" />
+        )}
         name="endereco"
       />
       {errors.endereco && <Text>Endereço é obrigatório.</Text>}
 
       <Controller
         control={control}
-        render={({ field }) => <TextInput {...field} placeholder="Telefone" />}
+        render={({ field }) => (
+          <InputController {...field} placeholder="Telefone" />
+        )}
         name="telefone"
       />
       {errors.telefone && <Text>Telefone é obrigatório.</Text>}
 
       <Controller
         control={control}
-        render={({ field }) => <TextInput {...field} placeholder="Email" />}
+        render={({ field }) => (
+          <InputController {...field} placeholder="Email" />
+        )}
         name="email"
       />
       {errors.email && <Text>Email é obrigatório.</Text>}
 
       <Controller
         control={control}
-        render={({ field }) => <TextInput {...field} placeholder="CNPJ" />}
+        render={({ field }) => (
+          <InputController {...field} placeholder="CNPJ" />
+        )}
         name="cnpj"
       />
       {errors.cnpj && <Text>CNPJ é obrigatório.</Text>}
@@ -72,7 +73,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         name="contrato_social_path"
       />
 
-      <Button onPress={handleSubmit(onFormSubmit)} title="Enviar" />
+      <CreateButton onPress={handleSubmit(onFormSubmit)} />
     </View>
   );
 };

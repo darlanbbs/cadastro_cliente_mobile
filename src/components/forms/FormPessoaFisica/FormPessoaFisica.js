@@ -2,17 +2,7 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { View, TextInput, Button, Text } from "react-native";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-
-const schema = yup.object().shape({
-  nome: yup.string().required(),
-  endereco: yup.string().required(),
-  telefone: yup.string().required(),
-  email: yup.string().email().required(),
-  cpf: yup.string().required(),
-  rg: yup.string().required(),
-  documento_path: yup.mixed(),
-});
+import { schemaPhysical } from "../../../schemas/schemas";
 
 const FormPessoaFisica = ({ onSubmit }) => {
   const {
@@ -20,7 +10,7 @@ const FormPessoaFisica = ({ onSubmit }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaPhysical),
   });
 
   const onFormSubmit = (data) => {
