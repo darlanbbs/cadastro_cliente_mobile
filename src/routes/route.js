@@ -14,7 +14,11 @@ function HeaderStack() {
     >
       <Stack.Screen name="Home" component={HomePage} />
       <Stack.Screen name="Cadastro" component={CreationPage} />
-      <Stack.Screen name="Clientes" component={ClientsPage} />
+      <Stack.Screen
+        name="Clientes"
+        component={ClientsPage}
+        options={{ headerShown: true }}
+      />
     </Stack.Navigator>
   );
 }
