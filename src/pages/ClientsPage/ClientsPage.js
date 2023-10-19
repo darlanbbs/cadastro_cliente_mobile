@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, View } from "react-native";
+import { FlatList, SafeAreaView } from "react-native";
 import { getAllClients } from "../../config/db";
-import { Container } from "../../GlobalStyles/styles";
-import * as C from "./styles";
+import { Container, ContainerPage } from "../../GlobalStyles/styles";
+
 import SearchComponent from "../../components/searchInput/SearchInput";
 import SearchCard from "../../components/CardUser/CardUser";
+import TitleArea from "../../components/TitleArea/TitleArea";
 
 const ClientsPage = () => {
   const [clients, setClients] = useState([]);
@@ -22,12 +23,12 @@ const ClientsPage = () => {
   return (
     <SafeAreaView>
       <Container>
-        <C.ContainerClientsPage>
-          <C.TitleArea>
-            <C.Title>Consulta de clientes</C.Title>
-            <C.subTitle>Gerenciamento de pessoas</C.subTitle>
-            <SearchComponent />
-          </C.TitleArea>
+        <ContainerPage>
+          <TitleArea
+            Text={"Consulta de clientes"}
+            subTitle={"Gerenciamento de pessoas"}
+          />
+          <SearchComponent />
 
           <FlatList
             style={{ flex: 1, width: "100%" }}
@@ -37,7 +38,7 @@ const ClientsPage = () => {
               <SearchCard item={item.nome_ou_nome_empresa} />
             )}
           />
-        </C.ContainerClientsPage>
+        </ContainerPage>
       </Container>
     </SafeAreaView>
   );
