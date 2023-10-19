@@ -6,8 +6,10 @@ import { schemaJuridical } from "../../../schemas/schemas";
 import { InputController } from "../styles/InputStylesForm";
 import CreateButton from "../../CreateButton/CreateButton";
 import { FinishButton, FinishTextButton } from "../styles/FinishButton";
+import * as DocumentPicker from "expo-document-picker";
 
 const FormPessoaJuridica = ({ onSubmit }) => {
+  const [arquivo, setArquivo] = React.useState(null);
   const {
     control,
     handleSubmit,
@@ -16,6 +18,20 @@ const FormPessoaJuridica = ({ onSubmit }) => {
     resolver: yupResolver(schemaJuridical),
   });
 
+  const selecionarDocumento = async () => {
+    try {
+      const resultado = await DocumentPicker.getDocumentAsync({
+        type: "*/*", // Aceitar qualquer tipo de arquivo
+        copyToCacheDirectory: false,
+      });
+
+      if (resultado.type === "success") {
+        setArquivo(resultado);
+      }
+    } catch (erro) {
+      console.error("Erro ao selecionar o documento:", erro);
+    }
+  };
   const onFormSubmit = (data) => {
     onSubmit(data);
   };
@@ -69,7 +85,10 @@ const FormPessoaJuridica = ({ onSubmit }) => {
       <Controller
         control={control}
         render={({ field }) => (
-          <Button title="Anexar Contrato Social" onPress={field.onChange} />
+          <Button
+            title="Anexar Contrato Social"
+            onPress={selecionarDocumento}
+          />
         )}
         name="contrato_social_path"
       />
