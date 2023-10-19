@@ -31,8 +31,3 @@ export const subTitle = styled(Text)`
   font-size: ${(props) => props.theme.font_size.small};
   font-weight: ${(props) => props.theme.font_weight.normal};
 `;
-
-export const ScrollViewClientPage = styled(ScrollView)`
-  width: 100%;
-  height: 100%;
-`;

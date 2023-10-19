@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, ScrollView, View } from "react-native"; // Importando ScrollView
+import { FlatList, SafeAreaView, View } from "react-native";
 import { getAllClients } from "../../config/db";
 import { Container } from "../../GlobalStyles/styles";
 import * as C from "./styles";

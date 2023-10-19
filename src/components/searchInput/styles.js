@@ -36,8 +36,3 @@ export const TextButtonSearch = styled(Text)`
   font-size: ${(props) => props.theme.font_size.default};
   font-weight: ${(props) => props.theme.font_weight.bold};
 `;
-
-export const ScrollViewClientPage = styled(ScrollView)`
-  width: 100%;
-  height: 100%;
-`;
