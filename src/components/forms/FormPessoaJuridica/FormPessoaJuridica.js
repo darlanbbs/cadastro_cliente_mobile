@@ -25,7 +25,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
     try {
       const resultado = await DocumentPicker.getDocumentAsync({
         type: "*/*",
-        copyToCacheDirectory: false,
+        copyToCacheDirectory: true,
       });
       console.log(resultado.assets[0]);
       if (resultado.canceled == false) {
@@ -40,11 +40,12 @@ const FormPessoaJuridica = ({ onSubmit }) => {
     let anexo;
     try {
       if (arquivo !== null) {
-        let { name, mimeType, size } = arquivo;
+        let { name, mimeType, size, uri } = arquivo;
         anexo = {
           name,
           mimeType,
           size,
+          uri,
         };
       }
 
