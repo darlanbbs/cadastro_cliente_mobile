@@ -6,6 +6,7 @@ import { schemaPhysical } from "../../../schemas/schemas";
 import { InputController } from "../styles/InputStylesForm";
 import { createPhysicalClient } from "../../../config/db";
 import { FinishButton, FinishTextButton } from "../styles/FinishButton";
+import ErrorText from "../../ErrorText/ErrorText";
 
 const FormPessoaFisica = ({ onSubmit }) => {
   const [existUser, setExistUser] = React.useState(false);
@@ -53,7 +54,7 @@ const FormPessoaFisica = ({ onSubmit }) => {
         )}
         name="nome"
       />
-      {errors.nome && <Text>Nome é obrigatório.</Text>}
+      {errors.nome && <ErrorText>Nome é obrigatório.</ErrorText>}
 
       <Controller
         control={control}
@@ -68,7 +69,7 @@ const FormPessoaFisica = ({ onSubmit }) => {
         )}
         name="endereco"
       />
-      {errors.endereco && <Text>Endereço é obrigatório.</Text>}
+      {errors.endereco && <ErrorText>Endereço é obrigatório.</ErrorText>}
 
       <Controller
         control={control}
@@ -83,7 +84,7 @@ const FormPessoaFisica = ({ onSubmit }) => {
         )}
         name="telefone"
       />
-      {errors.telefone && <Text>Telefone é obrigatório.</Text>}
+      {errors.telefone && <ErrorText>Telefone é obrigatório.</ErrorText>}
 
       <Controller
         control={control}
@@ -98,7 +99,7 @@ const FormPessoaFisica = ({ onSubmit }) => {
         )}
         name="email"
       />
-      {errors.email && <Text>Email é obrigatório.</Text>}
+      {errors.email && <ErrorText>Email é obrigatório.</ErrorText>}
 
       <Controller
         control={control}
@@ -113,7 +114,7 @@ const FormPessoaFisica = ({ onSubmit }) => {
         )}
         name="cpf"
       />
-      {errors.cpf && <Text>CPF é obrigatório.</Text>}
+      {errors.cpf && <ErrorText>CPF é obrigatório.</ErrorText>}
 
       <Controller
         control={control}
@@ -128,16 +129,9 @@ const FormPessoaFisica = ({ onSubmit }) => {
         )}
         name="rg"
       />
-      {errors.rg && <Text>RG é obrigatório.</Text>}
+      {errors.rg && <ErrorText>RG é obrigatório.</ErrorText>}
 
-      {/* <Controller
-        control={control}
-        render={({ field: { value, onChange } }) => (
-          <Button title="Anexar Documento" onPress={field.onChange} />
-        )}
-        name="documento_path"
-      /> */}
-      {existUser && <Text>Cliente já existe.</Text>}
+      {existUser && <ErrorText>Cliente já existe.</ErrorText>}
       <FinishButton onPress={handleSubmit(onFormSubmit)}>
         <FinishTextButton>Cadastrar</FinishTextButton>
       </FinishButton>

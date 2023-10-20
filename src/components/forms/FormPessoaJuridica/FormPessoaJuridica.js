@@ -7,6 +7,7 @@ import { InputController } from "../styles/InputStylesForm";
 import { FinishButton, FinishTextButton } from "../styles/FinishButton";
 import * as DocumentPicker from "expo-document-picker";
 import { createJuridicalClient } from "../../../config/db";
+import ErrorText from "../../ErrorText/ErrorText";
 
 const FormPessoaJuridica = ({ onSubmit }) => {
   const [arquivo, setArquivo] = React.useState(null);
@@ -27,7 +28,6 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         type: "*/*",
         copyToCacheDirectory: true,
       });
-      console.log(resultado.assets[0]);
       if (resultado.canceled == false) {
         setArquivo(resultado.assets[0]);
       }
@@ -82,7 +82,9 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         )}
         name="nome_empresa"
       />
-      {errors.nome_empresa && <Text>Nome da Empresa é obrigatório.</Text>}
+      {errors.nome_empresa && (
+        <ErrorText>Nome da Empresa é obrigatório.</ErrorText>
+      )}
 
       <Controller
         control={control}
@@ -97,7 +99,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         )}
         name="endereco"
       />
-      {errors.endereco && <Text>Endereço é obrigatório.</Text>}
+      {errors.endereco && <ErrorText>Endereço é obrigatório.</ErrorText>}
 
       <Controller
         control={control}
@@ -112,7 +114,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         )}
         name="telefone"
       />
-      {errors.telefone && <Text>Telefone é obrigatório.</Text>}
+      {errors.telefone && <ErrorText>Telefone é obrigatório.</ErrorText>}
 
       <Controller
         control={control}
@@ -127,7 +129,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         )}
         name="email"
       />
-      {errors.email && <Text>Email é obrigatório.</Text>}
+      {errors.email && <ErrorText>Email é obrigatório.</ErrorText>}
 
       <Controller
         control={control}
@@ -142,8 +144,8 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         )}
         name="cnpj"
       />
-      {errors.cnpj && <Text>CNPJ é obrigatório.</Text>}
-      {existUser && <Text>Cliente já existe.</Text>}
+      {errors.cnpj && <ErrorText>CNPJ é obrigatório.</ErrorText>}
+      {existUser && <ErrorText>Cliente já existe.</ErrorText>}
 
       <Button onPress={selecionarDocumento} title="anexo" />
       <FinishButton onPress={handleSubmit(onFormSubmit)}>
