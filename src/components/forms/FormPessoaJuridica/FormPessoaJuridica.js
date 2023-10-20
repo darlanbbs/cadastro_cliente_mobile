@@ -56,6 +56,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
+            placeholderTextColor={"#6c6c6a"}
             placeholder="Nome da Empresa"
             onChangeText={onChange}
             value={value}
@@ -70,6 +71,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
+            placeholderTextColor={"#6c6c6a"}
             placeholder="Endereço"
             onChangeText={onChange}
             value={value}
@@ -84,6 +86,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
+            placeholderTextColor={"#6c6c6a"}
             onChangeText={onChange}
             value={value}
             placeholder="Telefone"
@@ -98,6 +101,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
+            placeholderTextColor={"#6c6c6a"}
             onChangeText={onChange}
             value={value}
             placeholder="Email"
@@ -112,6 +116,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
+            placeholderTextColor={"#6c6c6a"}
             placeholder="CNPJ"
             onChangeText={onChange}
             value={value}
@@ -135,7 +140,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
       /> */}
 
       <FinishButton onPress={handleSubmit(onFormSubmit)}>
-        <FinishTextButton>Enviar</FinishTextButton>
+        <FinishTextButton>Cadastrar</FinishTextButton>
       </FinishButton>
     </View>
   );

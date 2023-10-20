@@ -34,12 +34,6 @@ const CreationPage = () => {
         {tipoCadastro === "juridica" && (
           <FormPessoaJuridica onSubmit={handleFormSubmit} />
         )}
-        {formData && (
-          <View>
-            <Text>Formulário submetido com sucesso:</Text>
-            <Text>{JSON.stringify(formData, null, 2)}</Text>
-          </View>
-        )}
       </ContainerPage>
     </Container>
   );
