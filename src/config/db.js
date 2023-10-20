@@ -65,3 +65,8 @@ export const deleteUser = async (email) => {
   const response = await api.delete(`/clients/${email}`);
   return response.data;
 };
+
+export const getAnyUser = async (email) => {
+  const response = await api.get(`/perfil/${email}`);
+  return response.data;
+};
