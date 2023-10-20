@@ -24,9 +24,9 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         type: "*/*",
         copyToCacheDirectory: false,
       });
-
-      if (resultado.type === "success") {
-        setArquivo(resultado);
+      console.log(resultado.assets[0]);
+      if (resultado.canceled == false) {
+        setArquivo(resultado.assets[0]);
       }
     } catch (erro) {
       console.error("Erro ao selecionar o documento:", erro);
@@ -34,21 +34,31 @@ const FormPessoaJuridica = ({ onSubmit }) => {
   };
 
   const onFormSubmit = async (data) => {
+    let anexo;
     try {
+      if (arquivo !== null) {
+        let { name, mimeType, size } = arquivo;
+        anexo = {
+          name,
+          mimeType,
+          size,
+        };
+      }
+
       await createJuridicalClient(
         data.nome_empresa,
         data.endereco,
         data.telefone,
         data.email,
-        data.cnpj
+        data.cnpj,
+        anexo
       );
-      console.log("Cliente jurídico criado com sucesso!");
       onSubmit(data);
     } catch (error) {
       console.log("Erro ao criar cliente jurídico:", error);
     }
-    console.log(data.email);
   };
+
   return (
     <View>
       <Controller
@@ -125,20 +135,8 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         name="cnpj"
       />
       {errors.cnpj && <Text>CNPJ é obrigatório.</Text>}
-      {/* <Controller
-        control={control}
-        render={({ field: { value, onChange } }) => (
-          <Button
-            title="Anexar Contrato Social"
-            onPress={() => {
-              selecionarDocumento();
-              onChange(arquivo);
-            }}
-          />
-        )}
-        name="contrato_social_path"
-      /> */}
 
+      <Button onPress={selecionarDocumento} title="anexo" />
       <FinishButton onPress={handleSubmit(onFormSubmit)}>
         <FinishTextButton>Cadastrar</FinishTextButton>
       </FinishButton>

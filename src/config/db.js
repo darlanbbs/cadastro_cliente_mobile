@@ -40,7 +40,8 @@ export const createJuridicalClient = async (
   endereco,
   telefone,
   email,
-  cnpj
+  cnpj,
+  contrato_social_path
 ) => {
   try {
     const response = await api.post("/clients/juridical", {
@@ -49,6 +50,7 @@ export const createJuridicalClient = async (
       telefone,
       email,
       cnpj,
+      contrato_social_path,
     });
     console.log("Cliente jurídico criado");
     console.log("response", response.data);

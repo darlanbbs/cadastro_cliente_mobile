@@ -4,6 +4,7 @@ import { Text, Button, View } from "react-native";
 import TitleArea from "../../components/TitleArea/TitleArea";
 import FormPessoaFisica from "../../components/forms/FormPessoaFisica/FormPessoaFisica";
 import FormPessoaJuridica from "../../components/forms/FormPessoaJuridica/FormPessoaJuridica";
+import { ButtonArea } from "./styles";
 
 const CreationPage = () => {
   const [tipoCadastro, setTipoCadastro] = useState("fisica");
@@ -20,14 +21,16 @@ const CreationPage = () => {
           Text={"Cadastro de Clientes"}
           subTitle={"Gerenciamento de pessoas"}
         />
-        <Button
-          onPress={() => setTipoCadastro("fisica")}
-          title="Cadastrar Pessoa Física"
-        />
-        <Button
-          onPress={() => setTipoCadastro("juridica")}
-          title="Cadastrar Pessoa Jurídica"
-        />
+        <ButtonArea>
+          <Button
+            onPress={() => setTipoCadastro("fisica")}
+            title="Pessoa Física"
+          />
+          <Button
+            onPress={() => setTipoCadastro("juridica")}
+            title="Pessoa Jurídica"
+          />
+        </ButtonArea>
         {tipoCadastro === "fisica" && (
           <FormPessoaFisica onSubmit={handleFormSubmit} />
         )}

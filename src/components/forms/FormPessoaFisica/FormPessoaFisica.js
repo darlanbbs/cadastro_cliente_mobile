@@ -27,7 +27,7 @@ const FormPessoaFisica = ({ onSubmit }) => {
         data.telefone
       );
     } catch (error) {
-      console.log("Erro ao cadastrar cliente:", error);
+      console.log("Erro ao cadastrar novo cliente:", error);
     }
     onSubmit(data);
   };

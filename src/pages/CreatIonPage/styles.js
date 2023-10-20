@@ -9,5 +9,14 @@ export const ContainerClientsPage = styled(View)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
+  gap: 20px;
+`;
+
+export const ButtonArea = styled(View)`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px;
 `;
