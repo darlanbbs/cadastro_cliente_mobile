@@ -1,11 +1,10 @@
 import React from "react";
 import * as C from "./styles";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { deleteUser } from "../../config/db";
 
-const SearchCard = ({ nome, email }) => {
+const SearchCard = ({ nome, onPress }) => {
   return (
-    <C.CardContainer>
+    <C.CardContainer onPress={onPress}>
       <C.ContentContainer>
         <C.IconContainer>
           <Icon name="user" size={24} color="#00B37E" />

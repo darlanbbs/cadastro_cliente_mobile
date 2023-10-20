@@ -7,7 +7,7 @@ import SearchComponent from "../../components/searchInput/SearchInput";
 import SearchCard from "../../components/CardUser/CardUser";
 import TitleArea from "../../components/TitleArea/TitleArea";
 
-const ClientsPage = () => {
+const ClientsPage = ({ navigation }) => {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
@@ -33,7 +33,14 @@ const ClientsPage = () => {
             data={clients}
             keyExtractor={(item) => item.email.toString()}
             renderItem={({ item }) => (
-              <SearchCard nome={item.nome_ou_nome_empresa} email={item.email} />
+              <SearchCard
+                nome={item.nome_ou_nome_empresa}
+                email={item.email}
+                navigation={navigation}
+                onPress={() =>
+                  navigation.navigate("Perfil", { email: item.email })
+                }
+              />
             )}
           />
         </ContainerPage>
