@@ -5,6 +5,18 @@ import { Container, ContainerPage } from "../../GlobalStyles/styles";
 import CardDetailsUser from "../../components/CardDetailsUserPhysical/CardDetailsUserPhysical";
 import CardDetailsUserJuridical from "../../components/CardDetailsUserJuridical/CardDetailsUserJuridical";
 
+const maskCPF = (cpf) => {
+  return "***.***.***-**" + cpf.substring(cpf.length - 2);
+};
+
+const maskRG = (rg) => {
+  return "*****" + rg.substring(rg.length - 2);
+};
+
+const maskCNPJ = (cnpj) => {
+  return "**.***.***/****-" + cnpj.substring(cnpj.length - 2);
+};
+
 const ProfilePage = ({ route }) => {
   const { email } = route.params;
   const [client, setClient] = useState([]);
@@ -21,23 +33,22 @@ const ProfilePage = ({ route }) => {
     }
   }, []);
 
-  console.log(client);
   return (
     <Container>
       <ContainerPage>
         {client.data ? (
           client.tipo === "fisica" ? (
             <CardDetailsUser
-              cpf={client.data[0].cpf}
+              cpf={maskCPF(client.data[0].cpf)}
               email={client.data[0].email}
               nome={client.data[0].nome}
               endereco={client.data[0].endereco}
-              rg={client.data[0].rg}
+              rg={maskRG(client.data[0].rg)}
               telefone={client.data[0].telefone}
             />
           ) : (
             <CardDetailsUserJuridical
-              cnpj={client.data[0].cnpj}
+              cnpj={maskCNPJ(client.data[0].cnpj)}
               email={client.data[0].email}
               nome_empresa={client.data[0].nome_empresa}
               endereco={client.data[0].endereco}
