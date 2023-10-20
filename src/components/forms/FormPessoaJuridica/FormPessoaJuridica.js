@@ -10,9 +10,12 @@ import { createJuridicalClient } from "../../../config/db";
 
 const FormPessoaJuridica = ({ onSubmit }) => {
   const [arquivo, setArquivo] = React.useState(null);
+  const [existUser, setExistUser] = React.useState(false);
+
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schemaJuridical),
@@ -53,8 +56,12 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         data.cnpj,
         anexo
       );
+      setExistUser(false);
+
       onSubmit(data);
+      reset();
     } catch (error) {
+      setExistUser(true);
       console.log("Erro ao criar cliente jurídico:", error);
     }
   };
@@ -135,6 +142,7 @@ const FormPessoaJuridica = ({ onSubmit }) => {
         name="cnpj"
       />
       {errors.cnpj && <Text>CNPJ é obrigatório.</Text>}
+      {existUser && <Text>Cliente já existe.</Text>}
 
       <Button onPress={selecionarDocumento} title="anexo" />
       <FinishButton onPress={handleSubmit(onFormSubmit)}>

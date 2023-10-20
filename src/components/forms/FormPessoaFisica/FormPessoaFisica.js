@@ -8,9 +8,11 @@ import { createPhysicalClient } from "../../../config/db";
 import { FinishButton, FinishTextButton } from "../styles/FinishButton";
 
 const FormPessoaFisica = ({ onSubmit }) => {
+  const [existUser, setExistUser] = React.useState(false);
   const {
     control,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schemaPhysical),
@@ -26,8 +28,12 @@ const FormPessoaFisica = ({ onSubmit }) => {
         data.rg,
         data.telefone
       );
+      setExistUser(false);
+
       onSubmit(data);
+      reset();
     } catch (error) {
+      setExistUser(true);
       console.log("Erro ao cadastrar novo cliente:", error);
     }
   };
@@ -131,6 +137,7 @@ const FormPessoaFisica = ({ onSubmit }) => {
         )}
         name="documento_path"
       /> */}
+      {existUser && <Text>Cliente já existe.</Text>}
       <FinishButton onPress={handleSubmit(onFormSubmit)}>
         <FinishTextButton>Cadastrar</FinishTextButton>
       </FinishButton>
