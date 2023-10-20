@@ -60,3 +60,8 @@ export const createJuridicalClient = async (
     throw error;
   }
 };
+
+export const deleteUser = async (email) => {
+  const response = await api.delete(`/clients/${email}`);
+  return response.data;
+};

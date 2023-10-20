@@ -33,7 +33,7 @@ const ClientsPage = () => {
             data={clients}
             keyExtractor={(item) => item.email.toString()}
             renderItem={({ item }) => (
-              <SearchCard item={item.nome_ou_nome_empresa} />
+              <SearchCard nome={item.nome_ou_nome_empresa} email={item.email} />
             )}
           />
         </ContainerPage>
