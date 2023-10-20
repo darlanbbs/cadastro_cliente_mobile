@@ -16,9 +16,9 @@ const FormPessoaFisica = ({ onSubmit }) => {
     resolver: yupResolver(schemaPhysical),
   });
 
-  const onFormSubmit = (data) => {
+  const onFormSubmit = async (data) => {
     try {
-      createPhysicalClient(
+      await createPhysicalClient(
         data.nome,
         data.cpf,
         data.email,
@@ -26,22 +26,23 @@ const FormPessoaFisica = ({ onSubmit }) => {
         data.rg,
         data.telefone
       );
+      onSubmit(data);
     } catch (error) {
       console.log("Erro ao cadastrar novo cliente:", error);
     }
-    onSubmit(data);
   };
 
   return (
     <View>
       <Controller
         control={control}
+        defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
             placeholderTextColor={"#6c6c6a"}
-            value={value}
             placeholder="Nome"
-            onChange={onChange}
+            onChangeText={onChange}
+            value={value}
           />
         )}
         name="nome"
@@ -50,12 +51,13 @@ const FormPessoaFisica = ({ onSubmit }) => {
 
       <Controller
         control={control}
+        defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
             placeholderTextColor={"#6c6c6a"}
-            value={value}
-            onChange={onChange}
             placeholder="Endereço"
+            onChangeText={onChange}
+            value={value}
           />
         )}
         name="endereco"
@@ -64,11 +66,12 @@ const FormPessoaFisica = ({ onSubmit }) => {
 
       <Controller
         control={control}
+        defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
             placeholderTextColor={"#6c6c6a"}
+            onChangeText={onChange}
             value={value}
-            onChange={onChange}
             placeholder="Telefone"
           />
         )}
@@ -78,11 +81,12 @@ const FormPessoaFisica = ({ onSubmit }) => {
 
       <Controller
         control={control}
+        defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
             placeholderTextColor={"#6c6c6a"}
+            onChangeText={onChange}
             value={value}
-            onChange={onChange}
             placeholder="Email"
           />
         )}
@@ -92,12 +96,13 @@ const FormPessoaFisica = ({ onSubmit }) => {
 
       <Controller
         control={control}
+        defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
             placeholderTextColor={"#6c6c6a"}
-            value={value}
-            onChange={onChange}
             placeholder="CPF"
+            onChangeText={onChange}
+            value={value}
           />
         )}
         name="cpf"
@@ -106,11 +111,12 @@ const FormPessoaFisica = ({ onSubmit }) => {
 
       <Controller
         control={control}
+        defaultValue=""
         render={({ field: { value, onChange } }) => (
           <InputController
             placeholderTextColor={"#6c6c6a"}
             value={value}
-            onChange={onChange}
+            onChangeText={onChange}
             placeholder="RG"
           />
         )}
