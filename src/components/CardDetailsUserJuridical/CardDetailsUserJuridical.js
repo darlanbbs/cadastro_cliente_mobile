@@ -18,12 +18,17 @@ const CardDetailsUserJuridical = ({
       <C.InfoText>Endereço: {endereco}</C.InfoText>
       <C.InfoText>Telefone: {telefone}</C.InfoText>
       <C.ButtonContainer>
-        {/* <C.DeleteButton onPress={onDelete(email)}>
+        <C.DeleteButton
+          onPress={() => {
+            deleteUser(email);
+            navigation.navigate("Home");
+          }}
+        >
           <Text>Deletar</Text>
         </C.DeleteButton>
         <C.EditButton onPress={onEdit}>
           <Text>Editar</Text>
-        </C.EditButton> */}
+        </C.EditButton>
       </C.ButtonContainer>
     </C.CardContainer>
   );

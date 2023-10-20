@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import * as C from "./styles";
+import { deleteUser } from "../../config/db";
 const CardDetailsUser = ({
   nome,
   cpf,
@@ -8,8 +9,7 @@ const CardDetailsUser = ({
   endereco,
   rg,
   telefone,
-  onEdit,
-  onDelete,
+  navigation,
 }) => {
   return (
     <C.CardContainer>
@@ -20,9 +20,14 @@ const CardDetailsUser = ({
       <C.InfoText>RG: {rg}</C.InfoText>
       <C.InfoText>Telefone: {telefone}</C.InfoText>
       <C.ButtonContainer>
-        {/* <C.DeleteButton onPress={onDelete(email)}>
+        <C.DeleteButton
+          onPress={() => {
+            deleteUser(email);
+            navigation.navigate("Home");
+          }}
+        >
           <Text>Deletar</Text>
-        </C.DeleteButton> */}
+        </C.DeleteButton>
         {/* <C.EditButton onPress={onEdit}>
           <Text>Editar</Text>
         </C.EditButton> */}

@@ -17,7 +17,7 @@ const maskCNPJ = (cnpj) => {
   return "**.***.***/****-" + cnpj.substring(cnpj.length - 2);
 };
 
-const ProfilePage = ({ route }) => {
+const ProfilePage = ({ route, navigation }) => {
   const { email } = route.params;
   const [client, setClient] = useState([]);
 
@@ -45,6 +45,7 @@ const ProfilePage = ({ route }) => {
               endereco={client.data[0].endereco}
               rg={maskRG(client.data[0].rg)}
               telefone={client.data[0].telefone}
+              navigation={navigation}
             />
           ) : (
             <CardDetailsUserJuridical
@@ -53,6 +54,7 @@ const ProfilePage = ({ route }) => {
               nome_empresa={client.data[0].nome_empresa}
               endereco={client.data[0].endereco}
               telefone={client.data[0].telefone}
+              navigation={navigation}
             />
           )
         ) : (

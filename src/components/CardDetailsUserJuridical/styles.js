@@ -27,10 +27,12 @@ export const Button = styled(TouchableOpacity)`
   align-items: center;
 `;
 
-export const DeleteButton = styled(Button)`
+export const DeleteButton = styled(TouchableOpacity)`
   background-color: #ff5733;
+  padding: 10px 30px;
 `;
 
-export const EditButton = styled(Button)`
+export const EditButton = styled(TouchableOpacity)`
   background-color: #33aaff;
+  padding: 10px 30px;
 `;
