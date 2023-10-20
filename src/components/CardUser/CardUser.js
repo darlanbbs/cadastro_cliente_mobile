@@ -12,9 +12,9 @@ const SearchCard = ({ nome, email }) => {
         </C.IconContainer>
         <C.TextCard>{nome}</C.TextCard>
       </C.ContentContainer>
-      <C.DeleteIconContainer onPress={async () => await deleteUser(email)}>
+      {/* <C.DeleteIconContainer onPress={async () => await deleteUser(email)}>
         <Icon name="times" size={24} color="#FF0000" />
-      </C.DeleteIconContainer>
+      </C.DeleteIconContainer> */}
     </C.CardContainer>
   );
 };
