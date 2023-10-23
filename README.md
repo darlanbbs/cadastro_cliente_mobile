@@ -54,3 +54,9 @@ Para rodar este projeto localmente, siga os passos abaixo:
 
 # Clientes cadastrados
   ![Web1](https://github.com/darlanbbs/cadastro_cliente_mobile/blob/main/layoutCli/clientes.png)
+
+# Cliente consultado
+
+ ![Web1](https://github.com/darlanbbs/cadastro_cliente_mobile/blob/main/layoutCli/detalhes.png)
+
+
