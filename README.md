@@ -42,7 +42,7 @@ Para rodar este projeto localmente, siga os passos abaixo:
 
 - Clone o repositório para o seu ambiente local.
 - Instale as dependências utilizando o comando npm install.
-- Inicie o projeto com o comando npm start.
+- Inicie o projeto com o comando npm start ou expo start.
 
 # Layout
 
