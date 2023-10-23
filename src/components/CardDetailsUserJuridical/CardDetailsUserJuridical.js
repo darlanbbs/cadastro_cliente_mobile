@@ -1,14 +1,14 @@
 import React from "react";
 import * as C from "./styles";
 import { Text } from "react-native";
+import { deleteUser } from "../../config/db";
 const CardDetailsUserJuridical = ({
   nome_empresa,
   cnpj,
   email,
   endereco,
   telefone,
-  onEdit,
-  onDelete,
+  navigation,
 }) => {
   return (
     <C.CardContainer>
@@ -26,9 +26,6 @@ const CardDetailsUserJuridical = ({
         >
           <Text>Deletar</Text>
         </C.DeleteButton>
-        <C.EditButton onPress={onEdit}>
-          <Text>Editar</Text>
-        </C.EditButton>
       </C.ButtonContainer>
     </C.CardContainer>
   );

@@ -29,10 +29,9 @@ export const Button = styled(TouchableOpacity)`
 
 export const DeleteButton = styled(TouchableOpacity)`
   background-color: #ff5733;
-  padding: 10px 30px;
-`;
-
-export const EditButton = styled(TouchableOpacity)`
-  background-color: #33aaff;
-  padding: 10px 30px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

@@ -28,9 +28,6 @@ const CardDetailsUser = ({
         >
           <Text>Deletar</Text>
         </C.DeleteButton>
-        {/* <C.EditButton onPress={onEdit}>
-          <Text>Editar</Text>
-        </C.EditButton> */}
       </C.ButtonContainer>
     </C.CardContainer>
   );
