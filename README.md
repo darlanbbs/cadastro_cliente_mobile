@@ -14,12 +14,12 @@ Este projeto utiliza as seguintes dependências:
 - axios
 - expo
 - expo-document-picker
-- expo-status-bar: ~1.6.0
-- react-native: 0.72.5
-- react-native-document-picker: ^9.0.1
-- react-native-vector-icons: ^10.0.0
-- styled-components: ^6.1.0
-- yup: ^1.3.2
+- expo-status-bar
+- react-native
+- react-native-document-picker
+- react-native-vector-icons
+- styled-components
+- yup
 
 
 # Funcionalidades
